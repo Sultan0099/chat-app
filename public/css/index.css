@@ -1,0 +1,74 @@
+body,
+* {
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+#people-list {
+  padding: 0;
+}
+
+#msg-container {
+  height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+.msg {
+  display: inline-block;
+  height: auto;
+  list-style-type: none;
+  min-width: 150px;
+  max-width: 300px;
+  border-radius: 15px;
+  background-color: white;
+  padding: 2px 15px;
+}
+
+.side-panel {
+  background-color: rgb(231, 231, 231);
+  height: 100vh;
+}
+.people-list-item {
+  list-style-type: none;
+  background-color: white;
+  cursor: pointer;
+  padding: 3px 5px;
+}
+
+.h-90 {
+  height: 90vh;
+  padding: 20px;
+  background-color: rgb(202, 202, 202);
+}
+
+.h-10 {
+  height: 10vh;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.msg-form {
+  background-color: black;
+}
+
+.w-80 {
+  width: 70%;
+}
+
+.sender {
+  margin: 2px 0px;
+}
+
+.sender-time-stamp {
+  font-size: 10px;
+  margin-top: 8px;
+  margin-left: 14px;
+  float: right;
+}
+.color-sender {
+  background-color: rgb(144, 190, 144);
+  color: white;
+}
