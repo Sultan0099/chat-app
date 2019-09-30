@@ -2,6 +2,10 @@ $(document).ready(function() {
   let socket = io();
   let time = moment().format("LT");
   let user = {};
+  function scrollToBottom() {
+    let messeage = document.querySelector("#msg-container").lastElementChild;
+    messeage.scrollIntoView();
+  }
   $("#join-chat-btn").on("click", function() {
     user.name = prompt("enter your name");
     user.join = time;
@@ -14,6 +18,7 @@ $(document).ready(function() {
         );
       });
       showMessages(messages);
+      scrollToBottom();
     });
 
     $("#join-chat-btn").hide();
@@ -36,10 +41,12 @@ $(document).ready(function() {
   socket.on("chat message", function(messages) {
     console.log(messages);
     showMessages(messages);
+    scrollToBottom();
   });
 
   function showMessages(messages) {
     $("#msg-container").html(" ");
+
     messages.forEach(msg => {
       if (user.name === msg.from) {
         console.log(user.name === msg.from);
