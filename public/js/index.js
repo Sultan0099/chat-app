@@ -6,18 +6,14 @@ $(document).ready(function() {
     user.name = prompt("enter your name");
     user.join = time;
     socket.emit("user added", user);
-    socket.on("user added", function(users) {
+    socket.on("user added", function(users, messages) {
       $("#people-list").html(" ");
       users.forEach(user => {
         $("#people-list").append(
           ` <li class="people-list-item mt-1">${user.name}<span class="time-stamp float-right"> ${user.join}</span>`
         );
       });
-      socket.on("chat message", function(messages) {
-        console.log(messages);
-        $("#msg-container").html(" ");
-        showMessages(messages);
-      });
+      showMessages(messages);
     });
 
     $("#join-chat-btn").hide();
@@ -39,11 +35,11 @@ $(document).ready(function() {
 
   socket.on("chat message", function(messages) {
     console.log(messages);
-    $("#msg-container").html(" ");
     showMessages(messages);
   });
 
   function showMessages(messages) {
+    $("#msg-container").html(" ");
     messages.forEach(msg => {
       if (user.name === msg.from) {
         console.log(user.name === msg.from);

@@ -27,7 +27,7 @@ io.on("connection", socket => {
       });
     }
     users.push(user);
-    io.emit("user added", users);
+    io.emit("user added", users, messages);
   });
 });
 
